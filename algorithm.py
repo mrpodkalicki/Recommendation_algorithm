@@ -66,7 +66,7 @@ def inserting_users(users_amount, cursor_obj, person_db, db_name, name_person):
             person_exec.query_insert(cursor)
             cursor_obj.commit()
             i += 1
-#
+
 def create_profil(cursor_db):
     cursor = cursor_db.cursor()
     number_rows_artist = cursor.execute("SELECT * FROM  artist")
@@ -108,8 +108,9 @@ def similarity_users(cursor_db,id_user):
         result = round(1 - spatial.distance.cosine(profil_user_first, profil_user_two), 5) if id_user != j else -1
         vector_of_best_users[j]=result
     return vector_of_best_users
-#the function which compares all users and chooses five best similarity users, add these users to the database
-def similar_user(cursor_db):
+
+    #the function which compares all users and chooses five best similarity users, add these users to the database
+def best_similar_users(cursor_db):
     cursor = cursor_db.cursor()
     number_rows_simple_user = cursor.execute("SELECT * FROM  simple_user")
     id_number = 1+number_rows_simple_user
@@ -167,7 +168,7 @@ def data_to_alghoritm(cursor_db):
 def main():
     cursor_obj=connectDatabase("dbmusic")
     cursor = cursor_obj.cursor()
-    similar_user(cursor_obj)
+    best_similar_users(cursor_obj)
     while True:
         print("Give index user:")
         index_user=int(input())
