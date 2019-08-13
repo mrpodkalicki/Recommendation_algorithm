@@ -160,7 +160,7 @@ def recomadn_artist(cursor_db,id_user):
     return all_song
 
 #the function that simulates the creation of users and their profiles
-def data_to_alghoritm(cursor_db):
+def data_simulation(cursor_db):
     cursor_obj = connectDatabase("dbmusic")
     create_profil(cursor_obj)
     inserting_users(10, cursor_obj, User, "user", "login")
