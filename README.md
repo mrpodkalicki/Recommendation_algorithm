@@ -1,4 +1,4 @@
-# Recommendation_algorithm
+#Recomandation alghoritm -technology: python 
 algorithm to recommend  the musical artists
 connecting  with MySQL database
 creating the users and save their data to the database
